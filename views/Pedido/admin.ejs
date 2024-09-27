@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Pedido</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<script src="../js/pedidos/listagem.js"></script>
+<style>
+    .containerCard {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin-top: 50px;
+    }
+
+    .p-cad{
+        text-align: center;
+        color: white;
+        margin-top: 50px;
+    }
+
+    .container-a {
+        text-align: center;
+    }
+
+    a {
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        margin: 20px;
+    }
+    .lanche {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-left: 65px;
+    }
+
+</style>
+<body class="bg-secondary p-5">
+
+    <div class="container p-5 bg-dark">
+        <h2 class="text-center text-white">Administrar Pedidos</h2>
+        <div class="container-a">
+            <a href="/">Voltar para tela inicial</a>
+            <a href="/pedido/fazer">Cadastrar novo pedido</a>
+        </div>
+        <% if (pedidos.length != 0) { %>
+            <div class="containerCard">
+                <% for (let i=0; i < pedidos.length;i++) { %>
+            
+                
+                    
+                    <div class="card cardPedidos" style="width: 18rem;">
+                        <img src="/img/lanche.png" class="card-img-top lanche">
+                        <div class="card-body">
+                          <h5 class="card-title"><%= pedidos[i].nome %></h5>
+                          <p class="card-text"><%= pedidos[i].endereco %></p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item"><i class="fa-solid fa-id-card"></i> <%= pedidos[i].id %></li>
+                          <li class="list-group-item"><i class="fa-solid fa-bread-slice"></i> <%= pedidos[i].pao %></li>
+                              <li class="list-group-item"><i class="fa-solid fa-burger"></i> <%= pedidos[i].hamburguer %></li>
+                              <li class="list-group-item"><i class="fa-solid fa-cheese"></i> <%= pedidos[i].queijo %></li>
+                              <li class="list-group-item"><i class="fa-solid fa-plus"></i> <%= pedidos[i].acompanhamento %></li>
+                        </ul>
+                        
+                          <div class="card-body" style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+                           <button type="button" style="border: none; background-color: transparent; width: 30px; height: 30px;" data-codigoexclusao="<%= pedidos[i].id %>" class="btnExclusao"><i class="fa-solid fa-trash" style="color: #e71818;"></i></i></button>
+                         </div> 
+                    </div>
+                
+                <% } %>
+            </div>
+        <% }  else { %>
+            <p class="p-cad">Nenhum pedido cadastrado!</p>
+        <% } %>
+        
+    </div>
+</body>
+</html>

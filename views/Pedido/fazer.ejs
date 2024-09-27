@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Pedido</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<script src="/js/pedidos/fazer.js"></script>
+<body class="bg-secondary p-5">
+
+    <div class="container p-5 bg-dark">
+        <h2 class="text-center text-white">Formulário de Pedido</h2>
+        <form>
+            <div class="form-group">
+                <label class="text-white" class="text-white" class="text-white" class="text-white" for="nome">Nome:</label>
+                <input type="text" class="form-control" id="nome">
+            </div>
+            <div class="form-group">
+                <label class="text-white" class="text-white" class="text-white" class="text-white" for="endereco">Endereço:</label>
+                <input type="text" class="form-control" id="endereco">
+            </div>
+            <div class="form-group">
+                <label class="text-white" class="text-white" class="text-white" class="text-white" for="pao">Pão:</label>
+                <select class="form-control" id="pao">
+                    <option value="0">Selecione uma opção</option>
+                    <% for (let i=0;i<pao.length;i++) { %>
+                        <option value="<%= pao[i].id %>"><%= pao[i].desc %></option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="text-white" class="text-white" class="text-white" class="text-white" for="hamb">Hamburguer:</label>
+                <select class="form-control" id="hamb">
+                    <option value="0">Selecione uma opção</option>
+                    <% for (let i=0;i<hamb.length;i++) { %>
+                        <option value="<%= hamb[i].id %>"><%= hamb[i].desc %></option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="text-white" class="text-white" class="text-white" class="text-white" for="queijo">Queijo:</label>
+                <select class="form-control" id="queijo">
+                    <option value="0">Selecione uma opção</option>
+                    <% for (let i=0;i<queijo.length;i++) { %>
+                        <option value="<%= queijo[i].id %>"><%= queijo[i].desc %></option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="text-white" class="text-white" class="text-white" class="text-white" for="acomp">Acompanhamento:</label>
+                <select class="form-control" id="acomp">
+                    <option value="0">Selecione uma opção</option>
+                    <% for (let i=0;i<acomp.length;i++) { %>
+                        <option value="<%= acomp[i].id %>"><%= acomp[i].desc %></option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="d-flex justify-content-between">
+                <a href="/" class="btn btn-danger">Retornar</a>
+                <button class="btn btn-success btnPedido" type="button">Finalizar Pedido</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
